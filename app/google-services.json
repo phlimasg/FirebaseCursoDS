@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1931262238",
+    "project_id": "udemy-3f6d1",
+    "storage_bucket": "udemy-3f6d1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1931262238:android:f586d341a819844335710f",
+        "android_client_info": {
+          "package_name": "br.org.lasalle.firebasecursods"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1931262238-98b4juj5vlr7q0638u4rr8rhk8sqf24u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.org.lasalle.firebasecursods",
+            "certificate_hash": "d9b808a6b5f426cc6fc6caec4f7892db96d00b57"
+          }
+        },
+        {
+          "client_id": "1931262238-hk8cdfs5ke6lqv8v4tddobkcl9a4aqhk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYW55QS8I2n_1h5swILrDOeDtRVHzb5mU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1931262238-hk8cdfs5ke6lqv8v4tddobkcl9a4aqhk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

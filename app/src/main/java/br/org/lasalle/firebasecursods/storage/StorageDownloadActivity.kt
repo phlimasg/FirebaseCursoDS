@@ -18,6 +18,8 @@ import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.squareup.picasso.Callback
+import com.squareup.picasso.MemoryPolicy
+import com.squareup.picasso.NetworkPolicy
 import com.squareup.picasso.Picasso
 import java.lang.Exception
 
@@ -27,6 +29,7 @@ class StorageDownloadActivity : AppCompatActivity(), View.OnClickListener {
     lateinit var progressBar: ProgressBar
     lateinit var button_Remover: Button
     lateinit var button_Download: Button
+    val url = "https://firebasestorage.googleapis.com/v0/b/udemy-3f6d1.appspot.com/o/image%2Fpc.png?alt=media&token=ebfef659-4a8c-4972-8b3a-0adbbb305b05"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,27 +55,26 @@ class StorageDownloadActivity : AppCompatActivity(), View.OnClickListener {
         }
 
         if(v?.getId() == R.id.button_Storage_Remove){
+            /*Picasso.get().invalidate(url)
+            Picasso.get().load(url).networkPolicy(NetworkPolicy.NO_CACHE).memoryPolicy(MemoryPolicy.NO_CACHE).into(imageView)*/
             Toast.makeText(this, "STORAGE REMOVE CLICADO", Toast.LENGTH_LONG).show()
         }
 
     }
 
     private fun download_imagem_1() {
-        val url = "https://firebasestorage.googleapis.com/v0/b/udemy-3f6d1.appspot.com/o/image%2Fpc.png?alt=media&token=ebfef659-4a8c-4972-8b3a-0adbbb305b05"
-        /*Picasso.get().load(url).into(imageView, object : Callback {
+        Picasso.get().load(url).into(imageView, object : Callback {
             override fun onSuccess() {
                 progressBar.isVisible = false
                 Toast.makeText(getBaseContext(), "Carregou a imagem", Toast.LENGTH_LONG).show()
             }
 
             override fun onError(e: Exception?) {
-                Toast.makeText(getBaseContext(), "Deu ruim: " + e?.message, Toast.LENGTH_LONG).show()
+                Toast.makeText(getBaseContext(), "Deu ruim: " + e?.message.toString(), Toast.LENGTH_LONG).show()
             }
         })
 
-         */
-
-        Glide.
+        /*Glide.
         with(getBaseContext()).
         asBitmap().
         load(url).
@@ -99,6 +101,8 @@ class StorageDownloadActivity : AppCompatActivity(), View.OnClickListener {
             }
 
         }).into(imageView)
+
+         */
 
     }
 

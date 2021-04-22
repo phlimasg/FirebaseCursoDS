@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.cardview.widget.CardView
+import br.org.lasalle.firebasecursods.database.DatabaseLerDadosActivity
 import br.org.lasalle.firebasecursods.storage.StorageDownloadActivity
 import br.org.lasalle.firebasecursods.util.Permissao
 import java.util.jar.Manifest
@@ -84,6 +85,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             Toast.makeText(this, "cardView_Storage_Upload", Toast.LENGTH_LONG).show()
         }
         if(v?.getId() == R.id.cardView_Database_LerDados){
+            startActivity(Intent(baseContext, DatabaseLerDadosActivity::class.java))
             Toast.makeText(this, "cardView_Database_LerDados", Toast.LENGTH_LONG).show()
         }
         if(v?.getId() == R.id.cardView_Database_Gravar_Alterar_Excluir){

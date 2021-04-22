@@ -1,5 +1,6 @@
 package br.org.lasalle.firebasecursods
 
+import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,6 +8,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.cardview.widget.CardView
+import br.org.lasalle.firebasecursods.storage.StorageDownloadActivity
 import br.org.lasalle.firebasecursods.util.Permissao
 import java.util.jar.Manifest
 
@@ -74,6 +76,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     //Tratamento dos click do CardView
     override fun onClick(v: View?) {
         if(v?.getId() == R.id.cardView_Storage_Download){
+            val intent: Intent = Intent(baseContext,StorageDownloadActivity::class.java)
+            startActivity(intent)
             Toast.makeText(this, "cardView_Storage_Download", Toast.LENGTH_LONG).show()
         }
         if(v?.getId() == R.id.cardView_Storage_Upload){

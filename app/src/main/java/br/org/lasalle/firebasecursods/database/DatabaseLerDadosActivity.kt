@@ -57,8 +57,8 @@ class DatabaseLerDadosActivity : AppCompatActivity() {
                     //val gerente: Gerente = data.getValue() as Gerente
                     //gerentes.add(gerente)
                 }
-                //textView_Nome.setText(gerentes?.get(0)?.getNome())
-                //textView_Idade.setText(gerentes?.get(0)?.getIdade().toString())
+                textView_Nome.setText(gerentes.get(0).getNome())
+                textView_Idade.setText(gerentes.get(0).getIdade().toString())
 
                 /*textView_Nome.setText(gerente?.getNome())
                 textView_Idade.setText(gerente?.getIdade().toString())*/

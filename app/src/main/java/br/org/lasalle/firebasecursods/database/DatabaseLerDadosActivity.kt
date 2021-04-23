@@ -21,7 +21,12 @@ class DatabaseLerDadosActivity : AppCompatActivity() {
     lateinit var textView_Fumante_2: TextView
 
     lateinit var fd: FirebaseDatabase
+
     lateinit var valueEventListener: ValueEventListener
+    lateinit var databaseReference: DatabaseReference
+    lateinit var childEventListener: ChildEventListener
+
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,8 +46,11 @@ class DatabaseLerDadosActivity : AppCompatActivity() {
     }
 
     fun ouvinte_1(){
-        val reference : DatabaseReference = fd.getReference().child("BD").child("Gerentes")
-        reference.addValueEventListener(object : ValueEventListener {
+        databaseReference = fd.getReference().child("BD").child("Gerentes")
+        //lê uma vez
+        //reference.addListenerForSingleValueEvent(object : ValueEventListener {
+        //atualiza quando há mudança
+        databaseReference.addValueEventListener(object : ValueEventListener {
 
             override fun onDataChange(dataSnapshot: DataSnapshot) {
 
@@ -54,8 +62,6 @@ class DatabaseLerDadosActivity : AppCompatActivity() {
                         gerentes.add(gerente)
                         Log.i("FireBase", "Adicionou!!! Valor do FB: ${gerente.getNome()}")
                     }
-                    //val gerente: Gerente = data.getValue() as Gerente
-                    //gerentes.add(gerente)
                 }
                 textView_Nome.setText(gerentes.get(0).getNome())
                 textView_Idade.setText(gerentes.get(0).getIdade().toString())
@@ -109,5 +115,13 @@ class DatabaseLerDadosActivity : AppCompatActivity() {
             }
 
         })
+    }
+
+    fun ouvinte_3(){
+        databaseReference = fd.getReference().child("BD").child("Gerentes")
+        //childEventListener.onChildChanged()
+        databaseReference.addChildEventListener(childEventListener)
+
+
     }
 }

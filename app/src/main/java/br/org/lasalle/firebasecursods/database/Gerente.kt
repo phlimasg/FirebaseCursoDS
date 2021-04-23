@@ -11,10 +11,19 @@ class Gerente {
 
     }
 
-    constructor(nome: String, idade: Int, fumante: Boolean) {
+    public fun Gerente(nome : String, idade: Int, fumante: Boolean) {
         this.nome = nome
         this.idade = idade
         this.fumante = fumante
+    }
+
+    fun getNome(): String {
+        return this.nome
+    }
+
+    fun getIdade(): Int {
+        return this.idade
+
     }
 
 

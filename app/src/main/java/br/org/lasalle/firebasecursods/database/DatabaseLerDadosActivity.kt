@@ -1,12 +1,14 @@
 package br.org.lasalle.firebasecursods.database
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import br.org.lasalle.firebasecursods.R
-import br.org.lasalle.firebasecursods.util.DialogAlerta
 import com.google.firebase.database.*
+import com.google.firebase.database.ktx.getValue
+
 
 class DatabaseLerDadosActivity : AppCompatActivity() {
 
@@ -40,10 +42,29 @@ class DatabaseLerDadosActivity : AppCompatActivity() {
 
     fun ouvinte_1(){
         val reference : DatabaseReference = fd.getReference().child("BD").child("Gerentes")
-        reference.addValueEventListener(object : ValueEventListener{
-            override fun onDataChange(snapshot: DataSnapshot) {
+        reference.addValueEventListener(object : ValueEventListener {
 
-                var nomes = arrayListOf<String>()
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+
+                val gerentes = ArrayList<Gerente>()
+
+                for (data in dataSnapshot.getChildren()) {
+                    val gerente = data.getValue<Gerente>()
+                    if (gerente != null) {
+                        gerentes.add(gerente)
+                        Log.i("FireBase", "Adicionou!!! Valor do FB: ${gerente.getNome()}")
+                    }
+                    //val gerente: Gerente = data.getValue() as Gerente
+                    //gerentes.add(gerente)
+                }
+                //textView_Nome.setText(gerentes?.get(0)?.getNome())
+                //textView_Idade.setText(gerentes?.get(0)?.getIdade().toString())
+
+                /*textView_Nome.setText(gerente?.getNome())
+                textView_Idade.setText(gerente?.getIdade().toString())*/
+
+
+                /*var nomes = arrayListOf<String>()
                 var idades = arrayListOf<Int>()
                 var fumantes = arrayListOf<Boolean>()
 
@@ -77,6 +98,8 @@ class DatabaseLerDadosActivity : AppCompatActivity() {
 
                 val dialogAlerta : DialogAlerta = DialogAlerta("Valor", nome +"\n"+ idade +"\n"+ fumante)
                 dialogAlerta.show(getSupportFragmentManager(),"1")
+
+                 */
 
                  */
             }
